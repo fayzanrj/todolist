@@ -86,8 +86,8 @@ h1{
     height: 100%;
     padding: 0 .3rem;
     border: none;
+    border-color: transparent;
     outline: none;
-    font-size = 1rem;
 }
 
 .input-box input::placeholder{
