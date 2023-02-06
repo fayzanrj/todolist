@@ -43,11 +43,12 @@ inputBtn.addEventListener('click', () => {
         }
     }
 
-    var ul = document.querySelector('ul');
+})
+
+ var ul = document.querySelector('ul');
     ul.addEventListener('click', function (ev) {
         console.log(ev.target.tagName)
         if (ev.target.tagName === 'P') {
             ev.target.classList.toggle('checked');
         }
     }, false);
-})
