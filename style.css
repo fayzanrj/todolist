@@ -87,6 +87,7 @@ h1{
     padding: 0 .3rem;
     border: none;
     outline: none;
+    font-size = 1rem;
 }
 
 .input-box input::placeholder{
