@@ -128,9 +128,10 @@ h1{
 
 .list li .content{
     padding: 0 1rem;
-    width: 90%;
+    width: 80%;
     height: fit-content;
     overflow-wrap: break-word;
+    outline: none;
 }
 
 
@@ -143,10 +144,12 @@ h1{
     box-sizing: border-box;
     align-items: center;
     padding-top: .28rem;
-    margin-left: .5rem;
+    /* margin-left: .5rem; */
     cursor: pointer;
 }
-
+.edit{
+    margin-top: -.3rem;
+}
 .checked{
     text-decoration: line-through;
 }
@@ -162,7 +165,7 @@ h1{
 
     .list li .content{
         padding: 0 .5rem;
-        width: 85%;
+        width: 76%;
     }
     .circles{
         width: 20%;
