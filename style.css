@@ -40,7 +40,7 @@ h1{
     position: relative;
     transition: 1000ms;
     opacity: 0;
-    margin-top: .5rem;
+    margin-top: 2rem;
 }
 
 .msg::after{
