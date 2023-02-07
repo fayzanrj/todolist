@@ -201,6 +201,7 @@ h1{
 @media screen  and (max-width:500px){
     .main{
         width: 90%;   
+        margin-top: 1rem;
     }
 
     .input-box{
