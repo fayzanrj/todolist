@@ -2,6 +2,8 @@ let list = document.getElementById('list')
 let inputBtn = document.getElementById('input-btn')
 var close = document.getElementsByClassName("delete");
 var edit = document.getElementsByClassName("edit");
+let msg = document.getElementById('msg')
+let msgAfter = window.getComputedStyle(msg, '::after')
 let colorNum = 1
 let taskNum = 1
 
@@ -15,6 +17,18 @@ inputBtn.addEventListener('click', () => {
         localStorage.setItem('Task' + taskNum, inputTxt)
         taskNum++
         document.getElementById('input-txt').value = ""
+
+        msg.style.setProperty('--animate', "")
+        msg.innerHTML = "Your Task has been added!"
+        msg.style.opacity = "1"
+        msg.style.setProperty('--animate', "msgWidth 3s")
+        setTimeout(() => {
+            msg.style.opacity = "0"
+        }, 2200);
+        setTimeout(() => {
+            msg.innerHTML = ""
+            msg.style.setProperty('--animate', "")
+        }, 3000)
 
         if (colorNum == 1) {
             list.innerHTML += `<li>
@@ -41,12 +55,24 @@ inputBtn.addEventListener('click', () => {
                             </li>`
             colorNum = 1;
         }
+
     }
 
     for (i = 0; i < close.length; i++) {
         close[i].onclick = function () {
             var div = this.parentElement;
-            div.style.display = "none";
+            div.style.display = "none";3
+            msg.style.setProperty('--animate', "")
+            msg.innerHTML = "Your Task has been deleted!"
+            msg.style.opacity = "1"
+            msg.style.setProperty('--animate', "msgWidth 3s")
+            setTimeout(() => {
+                msg.style.opacity = "0"
+            }, 2200);
+            setTimeout(() => {
+                msg.innerHTML = ""
+                msg.style.setProperty('--animate', "")
+            }, 3000)
         }
     }
 
@@ -56,6 +82,30 @@ inputBtn.addEventListener('click', () => {
             if (!e.target.parentElement.previousElementSibling.classList.contains("checked")) {
                 e.target.parentElement.previousElementSibling.setAttribute('contentEditable', 'true')
                 e.target.parentElement.previousElementSibling.focus()
+
+                msg.style.setProperty('--animate', "")
+                msg.innerHTML = "Your Task is ready to edit!"
+                msg.style.opacity = "1"
+                msg.style.setProperty('--animate', "msgWidth 3s")
+                setTimeout(() => {
+                    msg.style.opacity = "0"
+                }, 2200);
+                setTimeout(() => {
+                    msg.innerHTML = ""
+                    msg.style.setProperty('--animate', "")
+                }, 3000)
+            } else {
+                msg.style.setProperty('--animate', "")
+                msg.innerHTML = "Uncheck your task first to edit!"
+                msg.style.opacity = "1"
+                msg.style.setProperty('--animate', "msgWidth 3s")
+                setTimeout(() => {
+                    msg.style.opacity = "0"
+                }, 2200);
+                setTimeout(() => {
+                    msg.innerHTML = ""
+                    msg.style.setProperty('--animate', "")
+                }, 3000)
             }
         }
     }
@@ -66,6 +116,18 @@ const remove = (e) => {
     let p = document.getElementsByTagName('P')
     for (let i = 0; i < p.length; i++) {
         p[i].removeAttribute('contentEditable')
+
+        msg.style.setProperty('--animate', "")
+        msg.innerHTML = "Your Task has been updated!"
+        msg.style.opacity = "1"
+        msg.style.setProperty('--animate', "msgWidth 3s")
+        setTimeout(() => {
+            msg.style.opacity = "0"
+        }, 2200);
+        setTimeout(() => {
+            msg.innerHTML = ""
+            msg.style.setProperty('--animate', "")
+        }, 3000)
     }
 }
 
@@ -75,5 +137,34 @@ ul.addEventListener('click', function (ev) {
         if (ev.target != document.activeElement) {
             ev.target.classList.toggle('checked');
         }
+
+        if (ev.target.classList.contains('checked')) {
+            msg.style.setProperty('--animate', "")
+            msg.innerHTML = "Your Task has been checked!"
+            msg.style.opacity = "1"
+            msg.style.setProperty('--animate', "msgWidth 3s")
+            setTimeout(() => {
+                msg.style.opacity = "0"
+            }, 2200);
+            setTimeout(() => {
+                msg.innerHTML = ""
+                msg.style.setProperty('--animate', "")
+            }, 3000)
+        }  
+        if(ev.target != document.activeElement &&!ev.target.classList.contains('checked')){
+            msg.style.setProperty('--animate', "")
+            msg.innerHTML = "Your Task has been unchecked!"
+            msg.style.opacity = "1"
+            msg.style.setProperty('--animate', "msgWidth 3s")
+            setTimeout(() => {
+                msg.style.opacity = "0"
+            }, 2200);
+            setTimeout(() => {
+                msg.innerHTML = ""
+                msg.style.setProperty('--animate', "")
+            }, 3000)
+        }
     }
+
+
 }, false);
