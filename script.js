@@ -14,6 +14,7 @@ inputBtn.addEventListener('click', () => {
     if (inputTxt == "") {
         document.getElementById('input-txt').setAttribute('placeholder', 'Write someting first')
     } else {
+        document.getElementById('input-txt').setAttribute('placeholder', 'What is your next task?')
         localStorage.setItem('Task' + taskNum, inputTxt)
         taskNum++
         document.getElementById('input-txt').value = ""
