@@ -40,6 +40,7 @@ h1{
     position: relative;
     transition: 1000ms;
     opacity: 0;
+    margin-top: .5rem;
 }
 
 .msg::after{
@@ -60,6 +61,7 @@ h1{
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 1rem;
 }
 
 
@@ -145,7 +147,7 @@ h1{
 .list{
     width: 90%;
     height: fit-content;
-    margin-top: 3rem;
+    margin-top: 1rem;
 }
 
 .list li{
